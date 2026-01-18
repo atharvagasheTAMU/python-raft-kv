@@ -30,7 +30,7 @@ pip install python-raft-kv
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/python-raft-kv.git
+git clone https://github.com/atharvagasheTAMU/python-raft-kv.git
 cd python-raft-kv
 
 # 2. Install the package
