@@ -28,11 +28,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -e .
     
-    - name: Build Go bridge
-      run: |
-        cd raft-bridge
-        go build -o raft-bridge main.go command.go
-    
     - name: Check imports
       run: |
         python -c "from python_kv import KVStore; print('Import successful')"
