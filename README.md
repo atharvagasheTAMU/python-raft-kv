@@ -6,9 +6,11 @@ A distributed key-value store in Python that uses the [Raft consensus algorithm]
 
 **Throughput: ~1000 ops/sec**
 
-The Raft implementation is optimized with:
-- Heartbeat interval: 10ms (reduced from 50ms)
-- Debug logging: Disabled
+Run benchmarks:
+```bash
+python tests/benchmark.py -n 100
+python tests/benchmark_async.py -n 500 -t 20
+```
 
 ## Installation
 
@@ -23,8 +25,6 @@ The Raft implementation is optimized with:
 ```bash
 pip install python-raft-kv
 ```
-
-**Note:** If the package isn't on PyPI yet, see [GITHUB_SETUP.md](GITHUB_SETUP.md) for publishing instructions.
 
 ### Install from Source
 
@@ -214,37 +214,6 @@ pkill -f raft-bridge
 ```
 
 Or simply close the node windows.
-
-## Troubleshooting
-
-**"Go not found" error:**
-- Install Go from https://go.dev/dl/
-- Verify: `go version` should work
-
-**"raft-bridge not found" error:**
-- The bridge builds automatically on first use
-- Manual build: `cd raft-bridge && go build -o raft-bridge.exe main.go command.go` (Windows)
-- Manual build: `cd raft-bridge && go build -o raft-bridge main.go command.go` (Linux/Mac)
-
-**Port already in use:**
-- Stop existing processes: `Get-Process -Name raft-bridge | Stop-Process` (Windows)
-- Or change ports in `start.py` / `python_kv/cli.py`
-
-## What Gets Installed
-
-When you run `pip install -e .`, the following is installed:
-
-- **Python package**: `python_kv` module (importable in Python)
-- **Python dependencies**: `requests`, `psutil` (automatically installed)
-- **Console script**: `raft-kv-start` command (available in PATH)
-- **Go bridge**: Built from source on first use (requires Go compiler)
-
-## Publishing to PyPI
-
-See [GITHUB_SETUP.md](GITHUB_SETUP.md) for complete step-by-step instructions on:
-- Creating a GitHub repository
-- Setting up GitHub Actions
-- Publishing to PyPI
 
 ## Credits
 
