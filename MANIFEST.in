@@ -1,0 +1,8 @@
+include README.md
+include requirements.txt
+include LICENSE
+recursive-include raft-bridge *.go go.mod go.sum
+recursive-include raft *.go go.mod go.sum
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+
